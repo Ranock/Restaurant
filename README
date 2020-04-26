@@ -1,7 +1,7 @@
-Para iniciar a aplicaÁ„o:
+Para iniciar a aplica√ß√£o:
 
-caso n„o tenha instalado o sql server baixe a imagem oficial abaixo para usar o sql server
-caso possua um Sql Server instalado pule para o passo 5 crie as tabelas e altere no arquivo ./Properties/Resources.resx as credenciais de seu usuario 
+Caso n√£o tenha instalado o sql server baixe a imagem oficial abaixo para usar o sql server
+Caso possua um Sql Server instalado pule para o passo 5 crie as tabelas e altere no arquivo ./Properties/Resources.resx as credenciais de seu usuario 
 
 1) baixe a imagem oficial da microsoft: docker pull mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
 2) inicie o container: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=@Hu9999999" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
@@ -12,36 +12,36 @@ create database restaurant;
 use restaurant;
 create table schedule ( id int IDENTITY(1,1) PRIMARY KEY, name  VARCHAR(100),endTime TIME, startTime Time);
 
-EXPLICA«√O DO PROJETO:
+EXPLICA√á√ÉO DO PROJETO:
 
 Existem dois endpoints /api/restaurants /api/restaurants
 
-POST - /api/restaurants se destina ao envio do arquivo csv, a formato de envio È form-data;
+POST - /api/restaurants se destina ao envio do arquivo csv, a formato de envio √© form-data;
 
-GET - /api - Query parameter time - se destina ‡ consulta dos restaurantes que est„o em funcionamento no momento possui um query parameter chamado time que representa
-o hor·rio que se deseja consultar. O retorno desta requisiÁ„o È uma lista de nomes dos restaurantes que se adequarem aos critÈrios ou uma lista vazia em caso de nenhum se adequar.
+GET - /api - Query parameter time - se destina √† consulta dos restaurantes que est√£o em funcionamento no momento possui um query parameter chamado time que representa
+o hor√°rio que se deseja consultar. O retorno desta requisi√ß√£o √© uma lista de nomes dos restaurantes que se adequarem aos crit√©rios ou uma lista vazia em caso de nenhum se adequar.
 
-A aplicaÁ„o est· dividida em:
-	Controllers : Endpoints e classes que possuem a funÁ„o de receber e devolver os resultados aos clientes.
-	Services : Clasess que se destinam a processar alguma lÛgica.
-	RepositÛrios : classes que permitem uma interface de comunicaÁ„o com algum banco.
+A aplica√ß√£o est√° dividida em:
+	Controllers : Endpoints e classes que possuem a fun√ß√£o de receber e devolver os resultados aos clientes.
+	Services : Clasess que se destinam a processar alguma l√≥gica.
+	Reposit√≥rios : classes que permitem uma interface de comunica√ß√£o com algum banco.
 	Models : modelos de clases do projeto.
 sendo eles:
 	Controllers -> 
-		RestaurantController: Classe que possui os dois endpoints da aplicaÁ„o
+		RestaurantController: Classe que possui os dois endpoints da aplica√ß√£o
 	Services -> 
-		ParserService : serviÁo que escolhe o parseador e devolve o modelo do projeto
-		CsvParser :  Objeto que implementa uma interface de parseador de arquivo nele contÈm a logica para parsear aquele modelo de arquivo
-		RestaurantService : ServiÁo que salva os modelos no projeto e que consulta os mesmos do banco
+		ParserService : servi√ßo que escolhe o parseador e devolve o modelo do projeto
+		CsvParser :  Objeto que implementa uma interface de parseador de arquivo nele cont√©m a logica para parsear aquele modelo de arquivo
+		RestaurantService : Servi√ßo que salva os modelos no projeto e que consulta os mesmos do banco
 	Repositorios -> 
-		RestaurantRepository: Classe que tem por objetivo ser uma interface de comunicaÁ„o com o banco, neste caso SQl server.
+		RestaurantRepository: Classe que tem por objetivo ser uma interface de comunica√ß√£o com o banco, neste caso SQl server.
 	Models ->
-		Restaurant : modelo utilizado para representar o restaurante e seus hor·rios
+		Restaurant : modelo utilizado para representar o restaurante e seus hor√°rios
 		Archive : modelo que engloba o tipo de arquivo enviado para permitir adicionar propriedades de tratamento para cada tipo de arquivo se houver necessidade.
 	
 
-O projeto foi dividido assim para que cada parte faÁa seu trabalho separadamente assim facilitando uma alteraÁ„o
-Foi usado um padr„o de projeto chamado Strategy no caso deste projeto n„o h· esta necesidade, mas caso fosse necess·rio implementar o parseamento de diferentes 
-tipos de arquivo seria mais organizado e de mais facil manutenÁ„o, este padr„o consiste no uso de uma interface e para cada arquivo de tipo diferente È 
-gerada uma implementaÁ„o assim cada uma sabe tratar seu arquivo especificadamente e se algum erro acontecer em uma implementaÁ„o È facilmente localizado.
+O projeto foi dividido assim para que cada parte fa√ßa seu trabalho separadamente assim facilitando uma altera√ß√£o
+Foi usado um padr√£o de projeto chamado Strategy no caso deste projeto n√£o h√° esta necesidade, mas caso fosse necess√°rio implementar o parseamento de diferentes 
+tipos de arquivo seria mais organizado e de mais facil manuten√ß√£o, este padr√£o consiste no uso de uma interface e para cada arquivo de tipo diferente √© 
+gerada uma implementa√ß√£o assim cada uma sabe tratar seu arquivo especificadamente e se algum erro acontecer em uma implementa√ß√£o √© facilmente localizado.
 
