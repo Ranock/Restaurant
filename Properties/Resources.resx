@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="connection" xml:space="preserve">
-    <value>Server=localhost;Database=restaurant;User Id=SA;Password=@Hugo992912;</value>
+    <value>Server=localhost;Database=restaurant;User Id=SA;Password=@Hu9999999;</value>
   </data>
 </root>

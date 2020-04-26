@@ -1,0 +1,47 @@
+Para iniciar a aplicação:
+
+caso não tenha instalado o sql server baixe a imagem oficial abaixo para usar o sql server
+caso possua um Sql Server instalado pule para o passo 5 crie as tabelas e altere no arquivo ./Properties/Resources.resx as credenciais de seu usuario 
+
+1) baixe a imagem oficial da microsoft: docker pull mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+2) inicie o container: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=@Hu9999999" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+3) execute o bash do container: docker exec -it sql1 "bash"
+4) acesse o banco via terminal: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "@Hu9999999"
+5)execute o seguinte script para a criacao da tabela:
+create database restaurant;
+use restaurant;
+create table schedule ( id int IDENTITY(1,1) PRIMARY KEY, name  VARCHAR(100),endTime TIME, startTime Time);
+
+EXPLICAÇÃO DO PROJETO:
+
+Existem dois endpoints /api/restaurants /api/restaurants
+
+POST - /api/restaurants se destina ao envio do arquivo csv, a formato de envio é form-data;
+
+GET - /api - Query parameter time - se destina à consulta dos restaurantes que estão em funcionamento no momento possui um query parameter chamado time que representa
+o horário que se deseja consultar. O retorno desta requisição é uma lista de nomes dos restaurantes que se adequarem aos critérios ou uma lista vazia em caso de nenhum se adequar.
+
+A aplicação está dividida em:
+	Controllers : Endpoints e classes que possuem a função de receber e devolver os resultados aos clientes.
+	Services : Clasess que se destinam a processar alguma lógica.
+	Repositórios : classes que permitem uma interface de comunicação com algum banco.
+	Models : modelos de clases do projeto.
+sendo eles:
+	Controllers -> 
+		RestaurantController: Classe que possui os dois endpoints da aplicação
+	Services -> 
+		ParserService : serviço que escolhe o parseador e devolve o modelo do projeto
+		CsvParser :  Objeto que implementa uma interface de parseador de arquivo nele contém a logica para parsear aquele modelo de arquivo
+		RestaurantService : Serviço que salva os modelos no projeto e que consulta os mesmos do banco
+	Repositorios -> 
+		RestaurantRepository: Classe que tem por objetivo ser uma interface de comunicação com o banco, neste caso SQl server.
+	Models ->
+		Restaurant : modelo utilizado para representar o restaurante e seus horários
+		Archive : modelo que engloba o tipo de arquivo enviado para permitir adicionar propriedades de tratamento para cada tipo de arquivo se houver necessidade.
+	
+
+O projeto foi dividido assim para que cada parte faça seu trabalho separadamente assim facilitando uma alteração
+Foi usado um padrão de projeto chamado Strategy no caso deste projeto não há esta necesidade, mas caso fosse necessário implementar o parseamento de diferentes 
+tipos de arquivo seria mais organizado e de mais facil manutenção, este padrão consiste no uso de uma interface e para cada arquivo de tipo diferente é 
+gerada uma implementação assim cada uma sabe tratar seu arquivo especificadamente e se algum erro acontecer em uma implementação é facilmente localizado.
+

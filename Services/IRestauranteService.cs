@@ -10,6 +10,6 @@ namespace RestaurantWork.Services
     public interface IRestauranteService
     {
         List<Restaurant> ImportFile(Archive file);
-        List<string> GetNames(DateTime time);
+        List<string> GetNames(string time);
     }
 }

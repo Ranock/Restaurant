@@ -21,7 +21,7 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost, DisableRequestSizeLimit]
-        [Route("api/upload")]
+        [Route("api/restaurants")]
         public IActionResult Post()
         {
             try
@@ -38,19 +38,19 @@ namespace WebApplication2.Controllers
             }
         }
         [HttpGet]
-        [Route("api")]
+        [Route("api/restaurants")]
        public IActionResult Get([FromQuery(Name = "time")] string time)
         {
             Nullable<DateTime> parsedTime;
             try
             {
-                parsedTime = DateTime.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
+                return Ok(service.GetNames(time));
                
             }catch (Exception)
             {
                 return StatusCode(400, $"Incorect format time : [{time}] format : HH:mm");
             }
-            return Ok(service.GetNames(parsedTime.GetValueOrDefault()));
+            
         }
     
     }

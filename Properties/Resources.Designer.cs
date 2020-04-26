@@ -61,7 +61,7 @@ namespace RestaurantWork.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Server=localhost;Database=restaurant;User Id=SA;Password=@Hugo992912;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Server=localhost;Database=restaurant;User Id=SA;Password=@Hu9999999;.
         /// </summary>
         internal static string connection {
             get {
