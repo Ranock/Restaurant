@@ -1,0 +1,14 @@
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\appsettings.Development.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\appsettings.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\WebApplication2.deps.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\WebApplication2.runtimeconfig.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\WebApplication2.runtimeconfig.dev.json
+E:\projetos\c#\aditum\restaurant\WebApplication2\bin\Debug\netcoreapp2.1\WebApplication2.dll
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.csprojAssemblyReference.cache
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.RazorAssemblyInfo.cache
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.RazorAssemblyInfo.cs
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.AssemblyInfoInputs.cache
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.AssemblyInfo.cs
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.RazorTargetAssemblyInfo.cache
+E:\projetos\c#\aditum\restaurant\WebApplication2\obj\Debug\netcoreapp2.1\WebApplication2.genruntimeconfig.cache
